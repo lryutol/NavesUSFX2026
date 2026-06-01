@@ -1,0 +1,23 @@
+# Unreal Engine generated folders
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+
+# Visual Studio temporary files
+*.sln.DotSettings.user
+*.VC.db
+*.opensdf
+*.sdf
+*.suo
+.vs/
+
+# Xcode (si usas Mac, no viene mal)
+*.xcodeproj/
+*.xcworkspace/
+
+# Archivos de paquetes y configuraciones locales
+*.uasset
+*.umap
+*.log
