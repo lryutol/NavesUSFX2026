@@ -17,16 +17,17 @@ protected:
 
 public:
     virtual void Tick(float DeltaTime) override;
-
-    // Permite al GameMode asignar puntos de patrulla después del spawn
     void InitializeWaypoints(const TArray<FVector>& NewWaypoints);
 
+protected:
+    UStaticMeshComponent* MeshComponent;
+    float Lifespan;
+
 private:
-    UStaticMeshComponent* MeshComponent;    // Componente de malla
-    TArray<FVector> Waypoints;              // Lista de puntos a recorrer
-    int32 CurrentWaypointIndex;             // Índice actual del waypoint
-    float MovementSpeed;                    // Velocidad en unidades/segundo
-    float AcceptanceRadius;                 // Distancia para cambiar de punto
+    TArray<FVector> Waypoints;
+    int32 CurrentWaypointIndex;
+    float MovementSpeed;
+    float AcceptanceRadius;
 
     void MoveToNextWaypoint(float DeltaTime);
 };

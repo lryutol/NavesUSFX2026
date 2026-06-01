@@ -6,28 +6,30 @@ AEnemigo::AEnemigo()
 {
     PrimaryActorTick.bCanEverTick = true;
 
-    // Crear componente de malla como raíz
     MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
     RootComponent = MeshComponent;
 
-    // Cargar una malla desde el contenido del proyecto
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshObj(TEXT("StaticMesh'/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO'"));
-    if (MeshObj.Succeeded())
+    // Solo el enemigo base usa el OVNI
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> DefaultMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO"));
+    if (DefaultMesh.Succeeded())
     {
-        MeshComponent->SetStaticMesh(MeshObj.Object);
+        MeshComponent->SetStaticMesh(DefaultMesh.Object);
     }
 
-    // Valores iniciales de movimiento
     MovementSpeed = 300.0f;
     AcceptanceRadius = 50.0f;
     CurrentWaypointIndex = 0;
+    Lifespan = 0.0f;
 }
 
 void AEnemigo::BeginPlay()
 {
     Super::BeginPlay();
+    if (Lifespan > 0.0f)
+    {
+        SetLifeSpan(Lifespan);
+    }
 
-    // Si no se asignaron waypoints externos, define una ruta por defecto (cuadrado)
     if (Waypoints.Num() == 0)
     {
         FVector Base = GetActorLocation();
