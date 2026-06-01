@@ -2,7 +2,8 @@
 
 AETSoldado::AETSoldado()
 {
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshObj(TEXT("/Engine/BasicShapes/Capsule"));
+    // Cilindro vertical alto (soldado)
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshObj(TEXT("/Engine/BasicShapes/Cylinder"));
     if (MeshObj.Succeeded())
     {
         MeshComponent->SetStaticMesh(MeshObj.Object);

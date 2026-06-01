@@ -2,10 +2,11 @@
 
 AEADron::AEADron()
 {
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshObj(TEXT("/Engine/BasicShapes/Capsule"));
+    // Usamos un cilindro aplanado (simula un dron pequeño)
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshObj(TEXT("/Engine/BasicShapes/Cylinder"));
     if (MeshObj.Succeeded())
     {
         MeshComponent->SetStaticMesh(MeshObj.Object);
-        MeshComponent->SetWorldScale3D(FVector(0.4f, 0.4f, 0.4f));
+        MeshComponent->SetWorldScale3D(FVector(0.4f, 0.4f, 0.2f));
     }
 }

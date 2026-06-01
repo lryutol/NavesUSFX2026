@@ -30,4 +30,12 @@ private:
     float AcceptanceRadius;
 
     void MoveToNextWaypoint(float DeltaTime);
+
+    // Control de rebote tras colisión
+    FVector BounceDirection;
+    float BounceTimer;
+    bool bIsBouncing;
+
+    UFUNCTION()
+        void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 };

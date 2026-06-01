@@ -2,7 +2,8 @@
 
 AEAMotoAcuatica::AEAMotoAcuatica()
 {
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshObj(TEXT("/Engine/BasicShapes/Capsule"));
+    // Cilindro alargado horizontal (moto acuática)
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshObj(TEXT("/Engine/BasicShapes/Cylinder"));
     if (MeshObj.Succeeded())
     {
         MeshComponent->SetStaticMesh(MeshObj.Object);
