@@ -53,7 +53,7 @@ void UNaveManager::Inicializar(UWorld* World)
     Squad2Waypoints.Add(FVector(-600, -600, 220));
     Squad2Waypoints.Add(FVector(600, -600, 220));
 
-    // ---- Inicio de los labs ----
+    // Inicio los labs
     SpawnSquad(Squad1Classes, Squad1Locations, Squad1Waypoints, Squad1Members);
     WorldRef->GetTimerManager().SetTimer(CheckSquad1Timer, this,
         &UNaveManager::CheckSquad1Status, 1.0f, true);
@@ -65,7 +65,7 @@ void UNaveManager::Inicializar(UWorld* World)
     GenerarLaberintoConBloques();
 }
 
-// ========== Lab 2 ==========
+// Lab 2
 void UNaveManager::SpawnSquad(const TArray<TSubclassOf<AEnemigo>>& Classes,
     const TArray<FVector>& Locations,
     const TArray<FVector>& Waypoints,
@@ -110,7 +110,7 @@ void UNaveManager::SpawnSquad2()
     SpawnSquad(Squad2Classes, Squad2Locations, Squad2Waypoints, Squad2Members);
 }
 
-// ========== Lab 3 ==========
+//  Lab 3 
 void UNaveManager::SpawnNaves()
 {
     if (!WorldRef) return;
@@ -169,7 +169,7 @@ void UNaveManager::ReturnNavesAutonomous()
         if (Nave) Nave->ResumeAutonomous();
 }
 
-// ========== Lab 4 ==========
+//  Lab 4 
 void UNaveManager::GenerarLaberintoConBloques()
 {
     if (!WorldRef) return;
